@@ -1,0 +1,12 @@
+{% extends 'feed/base.html' %}
+{% block title %}Edit post{% endblock %}
+{% block content %}
+     <div class="features">
+        <h1>Edit post</h1><br>
+         <form action="" method="post" style="width: 600px; margin-left: 30%; text-align: center;">
+            {% csrf_token %}
+             {{form.as_p}}
+             <button class="btn btn-primary" type="submit">Save post</button>
+        </form>
+    </div>
+{% endblock %}

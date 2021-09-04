@@ -1,0 +1,45 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'feed/css/main.css'%}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="top-menu">
+        <a class="navbar-logo" href="{% url 'home' %}">Firtalgram<img src="{% static 'feed/img/inst_logo.png'%}"></a>
+        <ul class="menu-main">
+
+            <!--<li><a href="{% url 'signup' %}"><i class="fas fa-plus"></i>Sign Up</a></li>-->
+            {% if user.is_authenticated == False %}
+                <span class="login">
+                    <span><a href="{% url 'login' %}">Login</a></span>
+                </span>
+            {% else %}
+                <li><a href="{% url 'profile' %}"><i class="fas fa-user"></i>Me</a></li>
+                <li><a href="{% url 'home' %}"><i class="far fa-newspaper"></i>Feed</a></li>
+                <li><a href="{% url 'create' %}"><i class="fas fa-plus"></i>Add Post</a></li>
+                <li class="logout">
+                    <span><a href="{% url 'logout' %}">Logout</a></span>
+                </li>
+            {% endif %}
+
+        </ul>
+
+
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

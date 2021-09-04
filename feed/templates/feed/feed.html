@@ -1,0 +1,18 @@
+{% extends 'feed/base.html' %}
+{% block title %}Firtalgram{% endblock %}
+{% block content %}
+    {% if user.is_authenticated == True %}
+        <small class="logged">&zwnj; &zwnj; &zwnj; &zwnj; Logged in as {{ user }}</small>
+        {% for post in posts %}
+            <div class="card">
+                <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <div class="card-body">
+                    <p class="card-text">{{ post.description }}</p>
+                    <small class="text-muted">{{post.datetime}} by @{{ post.author }}</small>
+                </div>
+            </div><br>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

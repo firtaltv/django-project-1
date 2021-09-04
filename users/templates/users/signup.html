@@ -1,0 +1,54 @@
+{% extends 'feed/base.html' %}
+{% block title %}Sign Up{% endblock %}
+
+
+{% block content %}
+    <div class="signup">
+        <h2>Sign Up</h2><br>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="input-group mb-3">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
+                {{ form.username }}
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fas fa-envelope-square"></i>
+                    </span>
+                </div>
+                {{ form.email }}
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+                {{ form.password1 }}
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+        <div class="error">
+            {{ form.errors }}
+        </div>
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links">
+                Already have an account?<a href="{% url 'login' %}" class="ml-2">Login</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

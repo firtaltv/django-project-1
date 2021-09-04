@@ -1,0 +1,29 @@
+{% extends 'feed/base.html' %}
+{% block title %}My profile{% endblock %}
+{% block content %}
+    <div class="profile-info" style="margin: 25px;">
+        <h2>@{{ user }}'s profile </h2>
+        <h3>Posts: {{ posts_count }}</h3>
+    </div>
+    {% if user.is_authenticated == True %}
+        {% for post in posts %}
+            {% if user == post.author %}
+                <div class="card" style="width: 500px; height: 800px; margin-left: 450px;">
+                    <img class="profile-card-img-top" src="{{ post.image.url }}" alt="Card image cap"
+                         style="width: 450px; margin: 25px;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.description }}</p>
+                  </div>
+                  <div class="card-body">
+                      <ul class="edit-del">
+                          <li><a class="btn btn-primary" href="detail/{{ post.pk }}" role="button">View post</a></li>
+                          <li><a href="edit/{{ post.pk }}" class="card-link">Edit post</a></li>|
+                          <li><a href="delete/{{ post.pk }}" class="card-link">Delete post</a></li>
+                      </ul>
+                  </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

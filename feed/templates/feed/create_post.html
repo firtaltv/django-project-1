@@ -1,0 +1,17 @@
+{% extends 'feed/base.html' %}
+{% block title %}Create a new post{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Create a new post</h1><br>
+        <form method="post" action="" enctype="multipart/form-data" class="post-create">
+            {% csrf_token %}
+            {{ form.image }}<br><br>
+            {{ form.title }}<br>
+            {{ form.description }}<br>
+            <span>{{ error }}</span>
+            <input type="submit" value="Create">
+            <!--<button class="btn btn-success" type="submit">Create!</button>-->
+        </form>
+    </div>
+{% endblock %}

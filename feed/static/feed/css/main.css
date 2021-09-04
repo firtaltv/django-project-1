@@ -1,0 +1,191 @@
+body {
+    background-color: #f7f7f7;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+a {text-decoration: none;}
+ul { display: flex; }
+a {display: block; }
+
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito');
+.top-menu {
+  background: rgba(255,255,255,.5);
+  box-shadow: 1px 0 7px rgba(0,0,0,.3);
+  padding: 20px;
+}
+.top-menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar-logo {
+    display: inline-block;
+    margin-left: 200px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    text-decoration:none;
+    color: black;
+}
+.navbar-logo img { width: 50px; height: 50px; margin-top: 5px; margin-left: 10px}
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+  margin-right: 15px;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  line-height: 61px;
+  padding-left: 10px;
+  margin-left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  color: black;
+}
+
+
+@media (max-width: 660px) {
+.menu-main {
+  float: none;
+  padding-top: 20px;
+}
+.top-menu {
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+.menu-main a {padding: 0 10px;}
+}
+@media (max-width: 600px) {
+.menu-main li {display: block;}
+}
+
+main .features h1 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 50px;
+}
+
+main .post-create  {
+    width: 500px;
+}
+
+main .card {
+    width: 600px;
+    margin-left: 27%;
+    margin-top: 20px;
+}
+
+main .card h5 {
+    font-family: 'Nunito', sans-serif;
+    margin-left: 15px;
+}
+
+main .signup {
+    font-family: 'Nunito', sans-serif;
+    margin-top: 30px;
+}
+
+main .signup form {
+    font-family: 'Nunito', sans-serif;
+    margin-left: 42%;
+}
+
+main .signup h2{
+    font-family: 'Nunito', sans-serif;
+    margin-left: 45%;
+}
+
+main .login {
+    font-family: 'Nunito', sans-serif;
+    margin-top: 30px;
+}
+
+main .login form {
+    font-family: 'Nunito', sans-serif;
+    margin-left: 42%;
+}
+
+main .login h2{
+    font-family: 'Nunito', sans-serif;
+    margin-left: 47%;
+}
+
+main form.post-create {
+    margin-left: 33%;
+}
+
+main .error {
+    font-family: 'Nunito', sans-serif;
+    margin-left: 41%;
+    margin-top: 5%;
+}
+
+main .reset_pass {
+    font-family: 'Nunito', sans-serif;
+    display: block;
+    width: 400px;
+    margin-left: 530px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+main .reset_pass_sent {
+    font-family: 'Nunito', sans-serif;
+    display: block;
+    width: 800px;
+    margin-left: 350px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+main .reset_pass_done {
+font-family: 'Nunito', sans-serif;
+    display: block;
+    width: 800px;
+    margin-left: 350px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+main .reset_pass_form {
+    font-family: 'Nunito', sans-serif;
+    display: block;
+    width: 800px;
+    margin-left: 340px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+main .profile-posts {
+    width: 700px;
+    margin-top: 10px;
+    padding: 25px;
+}
+
+main .profile-card-img-top {
+    width: 200px;
+    padding: 25px;
+    margin
+}
+
+ul .edit-del {
+    list-style-type: none;
+    margin: 20px;
+    padding: 20px;
+}
+
+ul .edit-del li {
+    display: inline;
+    margin: 20 px;
+}
