@@ -16,3 +16,4 @@ Hi! This project includes:
 11. Custom Post creation Form;
 12. Migrations to Database;
 13. Git Commit changes and initialized repository;
+14. Docker
