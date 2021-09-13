@@ -5,23 +5,23 @@ from django.http import HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from functools import wraps
-import time
 
 
 def authors_only(function):
     @wraps(function)
-    def wrap(request, *args, **kwargs):
+    def wrap(request, pk, *args, **kwargs):
         author = request.user
-        if Post.author == author:
-            return function(request, *args, **kwargs)
+        post = Post.objects.get(pk=pk)
+        if post.author == author:
+            return function(request, pk, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse_lazy('home'))
+            return HttpResponseRedirect(reverse_lazy('profile'))
     return wrap
 
 
 @login_required(login_url='login')
 def main(request):
-    posts = Post.objects.order_by('-datetime')
+    posts = Post.objects.all()
     return render(request, 'feed/feed.html', {'posts': posts})
 
 
@@ -52,11 +52,12 @@ def post_detail(request, pk):
     context = {
         'post': post
     }
+    print(request.user, post.author)
     template = 'feed/detail.html'
     return render(request, template, context)
 
 
-#@authors_only
+@authors_only
 @login_required(login_url='login')
 def edit(request, pk):
     try:
@@ -80,7 +81,7 @@ def edit(request, pk):
         return HttpResponseNotFound("<h2 style='margin: 250px;'>Person not found</h2>")
 
 
-#@authors_only
+@authors_only
 @login_required(login_url='login')
 def delete(request, pk):
     try:

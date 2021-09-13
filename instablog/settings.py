@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#+nqi-hgrdx8*thon=y%+%prr$^j+2k(hw=8vwims%^5j&-s#o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,14 +76,16 @@ WSGI_APPLICATION = 'instablog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+os.environ['POSTGRES_DB']= 'django-app-1'
+os.environ['POSTGRES_USER']= 'postgres'
+os.environ['POSTGRES_PASSWORD']= 'smartdrv'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django-app-1',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'smartdrv',
-        'HOST': 'localhost',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
         'PORT': '5432'
     }
 }

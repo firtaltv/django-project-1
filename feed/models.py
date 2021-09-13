@@ -12,7 +12,7 @@ class Post(models.Model):
     datetime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return self.author
 
     def get_absolute_url(self):
         return reverse('feed/feed.html')
@@ -20,4 +20,5 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
+        ordering = ('-datetime',)
 
