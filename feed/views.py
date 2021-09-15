@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Post
 from .forms import PostCreationForm
-from django.http import HttpResponseRedirect, HttpResponseNotFound
+from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponseForbidden
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from functools import wraps
@@ -10,18 +10,19 @@ from functools import wraps
 def authors_only(function):
     @wraps(function)
     def wrap(request, pk, *args, **kwargs):
-        author = request.user
-        post = Post.objects.get(pk=pk)
-        if post.author == author:
+        author = request.user  # переменная для записи залогиненого пользователя
+        post = Post.objects.get(pk=pk)  # переменная для опреденнёного поста над которым собираются проводить действия
+        if post.author == author:  # сравнение - является автор этого поста залогиненым пользователем
             return function(request, pk, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse_lazy('profile'))
+            # return HttpResponseRedirect(reverse_lazy('profile'))
+            return HttpResponseForbidden()
     return wrap
 
 
 @login_required(login_url='login')
 def main(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all()  # все посты
     return render(request, 'feed/feed.html', {'posts': posts})
 
 
