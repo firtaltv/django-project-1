@@ -17,6 +17,7 @@ def authors_only(function):
         else:
             # return HttpResponseRedirect(reverse_lazy('profile'))
             return HttpResponseForbidden()
+
     return wrap
 
 
